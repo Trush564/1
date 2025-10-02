@@ -14,25 +14,28 @@
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-   <HBox prefHeight="66.0" prefWidth="560.0">
-      <children>
-         <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" text="Добавити">
-            <HBox.margin>
-               <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-            </HBox.margin>
-         </Button>
-         <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" text="Редагувати">
-            <HBox.margin>
-               <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-            </HBox.margin>
-         </Button>
-         <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" text="Видалити">
-            <HBox.margin>
-               <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-            </HBox.margin>
-         </Button>
-      </children>
-   </HBox>
+    <HBox prefHeight="66.0" prefWidth="560.0">
+        <children>
+            <Button fx:id="addButton" text="Добавити" onAction="#handleOpenDialog"
+                    mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0">
+                <HBox.margin>
+                    <Insets bottom="30.0" left="30.0" right="30.0" top="30.0"/>
+                </HBox.margin>
+            </Button>
+            <Button fx:id="editButton" text="Редагувати" onAction="#handleEdit"
+                    mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0">
+                <HBox.margin>
+                    <Insets bottom="30.0" left="30.0" right="30.0" top="30.0"/>
+                </HBox.margin>
+            </Button>
+            <Button fx:id="deleteButton" text="Видалити" onAction="#handleDelete"
+                    mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0">
+                <HBox.margin>
+                    <Insets bottom="30.0" left="30.0" right="30.0" top="30.0"/>
+                </HBox.margin>
+            </Button>
+        </children>
+    </HBox>
 
     <Label fx:id="welcomeText" />
    <AnchorPane prefHeight="98.0" prefWidth="560.0">
