@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="10" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo11.AudioController">
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+    <Label fx:id="audioLabel" text="Файли з папки music" />
+    <ProgressBar fx:id="audioProgress" prefWidth="400" />
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Перемотування:" />
+        <Slider fx:id="seekSlider" min="0" max="100" value="0" prefWidth="350" showTickLabels="false" showTickMarks="false" />
+    </HBox>
+    <HBox spacing="10">
+        <Button text="Попередня" onAction="#previousAudio" />
+        <Button text="Play" onAction="#playAudio" />
+        <Button text="Pause" onAction="#pauseAudio" />
+        <Button text="Наступна" onAction="#nextAudio" />
+    </HBox>
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Гучність" />
+        <Slider fx:id="volumeSlider" min="0" max="100" value="50" showTickLabels="true" showTickMarks="true" majorTickUnit="25" blockIncrement="5" />
+    </HBox>
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label fx:id="speedLabel" text="Швидкість: 1.0x" />
+        <Button text="0.5x" onAction="#setSpeed05x" />
+        <Button text="1x" onAction="#setSpeed1x" />
+        <Button text="1.5x" onAction="#setSpeed15x" />
+        <Button text="2x" onAction="#setSpeed2x" />
+    </HBox>
+</VBox>
+

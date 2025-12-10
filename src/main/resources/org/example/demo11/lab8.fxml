@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToWidth="true" styleClass="lab7-root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <content>
+        <VBox spacing="20.0" styleClass="lab7-content" xmlns="http://javafx.com/javafx/21">
+            <padding>
+                <Insets bottom="30" left="40" right="40" top="30"/>
+            </padding>
+            
+            <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2d4059;" text="Лабораторна робота 8" />
+            <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2d4059;" text="Варіанти розгортання JavaFX проєкту" />
+            
+            <Separator />
+            
+            <VBox spacing="15">
+                <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="1. Створення JAR файлу за допомогою Maven" />
+                <VBox spacing="8" style="-fx-padding: 10 0 0 20;">
+                    <Label style="-fx-wrap-text: true;" text="Виконайте команду в терміналі:" wrapText="true" />
+                    <Label style="-fx-font-family: monospace; -fx-background-color: #f0f0f0; -fx-padding: 8; -fx-background-radius: 4;" text=".\mvnw.cmd clean package" wrapText="true" />
+                    <Label style="-fx-wrap-text: true;" text="JAR файл: target/demo11-1.0-SNAPSHOT.jar" wrapText="true" />
+                </VBox>
+            </VBox>
+            
+            <VBox spacing="15">
+                <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="2. Запуск застосунку" />
+                <VBox spacing="8" style="-fx-padding: 10 0 0 20;">
+                    <Label style="-fx-wrap-text: true;" text="⚠ JavaFX потребує нативні бібліотеки, тому просто java -jar НЕ ПРАЦЮЄ" wrapText="true" />
+                    <Label style="-fx-wrap-text: true;" text="Використайте готовий скрипт:" wrapText="true" />
+                    <Label style="-fx-font-family: monospace; -fx-background-color: #f0f0f0; -fx-padding: 8; -fx-background-radius: 4;" text=".\run.bat" wrapText="true" />
+                    <Label style="-fx-wrap-text: true;" text="Або для Linux/Mac: ./run.sh" wrapText="true" />
+                </VBox>
+            </VBox>
+            
+            <VBox spacing="15">
+                <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="3. Створення EXE файлу (опціонально)" />
+                <VBox spacing="8" style="-fx-padding: 10 0 0 20;">
+                    <Label style="-fx-wrap-text: true;" text="Варіант 1: jpackage (JDK 14+):" wrapText="true" />
+                    <Label style="-fx-font-family: monospace; -fx-background-color: #f0f0f0; -fx-padding: 8; -fx-background-radius: 4;" 
+                           text="jpackage --input target --name Demo11 --main-jar demo11-1.0-SNAPSHOT.jar --main-class org.example.demo11.HelloApplication --type exe" 
+                           wrapText="true" />
+                    <Label style="-fx-wrap-text: true;" text="Варіант 2: Launch4j - завантажте з https://launch4j.sourceforge.net/" wrapText="true" />
+                </VBox>
+            </VBox>
+        </VBox>
+    </content>
+</ScrollPane>
+

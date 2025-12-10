@@ -23,9 +23,6 @@ import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
     @FXML
-    private Label welcomeText;
-    
-    @FXML
     private TableView<Person> tableAddressBook;
     
     @FXML
@@ -50,21 +47,18 @@ public class HelloController implements Initializable {
     private Parent root;
     private SecondController editController;
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
-
-    private void showDialog() {
+    private void showDialog(String title) {
         if (editDialogStage == null) {
             editDialogStage = new Stage();
-            editDialogStage.setTitle("Редагування запису");
             editDialogStage.initModality(Modality.WINDOW_MODAL);
             editDialogStage.setResizable(false);
-            editDialogStage.setScene(new Scene(root));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+            editDialogStage.setScene(scene);
             Stage parentStage = (Stage) tableAddressBook.getScene().getWindow();
             editDialogStage.initOwner(parentStage);
         }
+        editDialogStage.setTitle(title);
         editDialogStage.showAndWait();
     }
 
@@ -77,7 +71,7 @@ public class HelloController implements Initializable {
             case "addButton":
                 Person newPerson = new Person();
                 editController.setPerson(newPerson);
-                showDialog();
+                showDialog("Додати запис");
                 if (newPerson != null && newPerson.getPip() != null && !newPerson.getPip().trim().isEmpty()) {
                     addressBookImpl.add(newPerson);
                 }
@@ -86,33 +80,39 @@ public class HelloController implements Initializable {
                 Person selectedPerson = tableAddressBook.getSelectionModel().getSelectedItem();
                 if (selectedPerson != null) {
                     editController.setPerson(selectedPerson);
-                    showDialog();
+                    showDialog("Редагувати запис");
                 } else {
-                    Alert alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setTitle("Попередження");
-                    alert.setHeaderText("Не вибрано запис");
-                    alert.setContentText("Будь ласка, виберіть запис для редагування.");
-                    alert.showAndWait();
+                    showWarningAlert("Редагування запису", 
+                                   "Запис не вибрано", 
+                                   "Будь ласка, виберіть запис з таблиці для редагування.");
                 }
                 break;
             case "deleteButton":
                 Person personToDelete = tableAddressBook.getSelectionModel().getSelectedItem();
                 if (personToDelete != null) {
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                    alert.setTitle("Видалення");
+                    alert.setTitle("Видалення запису");
                     alert.setHeaderText("Підтвердження видалення");
-                    alert.setContentText("Ви дійсно хочете видалити контакт?");
+                    String personName = personToDelete.getPip() != null && !personToDelete.getPip().trim().isEmpty() 
+                                        ? personToDelete.getPip() 
+                                        : "невідомо";
+                    alert.setContentText("Ви дійсно хочете видалити контакт:\n\"" + personName + "\"?\n\nЦю дію неможливо скасувати.");
+                    Stage alertStage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    Stage mainStage = (Stage) tableAddressBook.getScene().getWindow();
+                    if (mainStage.getIcons() != null && !mainStage.getIcons().isEmpty()) {
+                        alertStage.getIcons().addAll(mainStage.getIcons());
+                    }
+                    alert.getDialogPane().getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+                    alert.getDialogPane().setStyle("-fx-background-color: linear-gradient(to bottom right, #84e6e1, #efc7d2);");
                     alert.showAndWait().ifPresent(response -> {
                         if (response == ButtonType.OK) {
                             addressBookImpl.delete(personToDelete);
                         }
                     });
                 } else {
-                    Alert alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setTitle("Попередження");
-                    alert.setHeaderText("Не вибрано запис");
-                    alert.setContentText("Будь ласка, виберіть запис для видалення.");
-                    alert.showAndWait();
+                    showWarningAlert("Видалення запису", 
+                                   "Запис не вибрано", 
+                                   "Будь ласка, виберіть запис з таблиці для видалення.");
                 }
                 break;
         }
@@ -179,6 +179,21 @@ public class HelloController implements Initializable {
         } else {
             labelCount.setText("Кількість записів: " + totalCount);
         }
+    }
+
+    private void showWarningAlert(String title, String header, String content) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        Stage alertStage = (Stage) alert.getDialogPane().getScene().getWindow();
+        Stage mainStage = (Stage) tableAddressBook.getScene().getWindow();
+        if (mainStage.getIcons() != null && !mainStage.getIcons().isEmpty()) {
+            alertStage.getIcons().addAll(mainStage.getIcons());
+        }
+        alert.getDialogPane().getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        alert.getDialogPane().setStyle("-fx-background-color: linear-gradient(to bottom right, #84e6e1, #efc7d2);");
+        alert.showAndWait();
     }
 
     @FXML

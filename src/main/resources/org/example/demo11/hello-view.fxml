@@ -8,42 +8,22 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox alignment="CENTER" prefHeight="600.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo11.HelloController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-    <HBox prefHeight="66.0" prefWidth="560.0">
-        <children>
-            <Button fx:id="addButton" mnemonicParsing="false" onAction="#openWindow" prefHeight="40.0" prefWidth="140.0" text="Добавити">
-                <HBox.margin>
-                    <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-                </HBox.margin>
-            </Button>
-            <Button fx:id="editButton" mnemonicParsing="false" onAction="#openWindow" prefHeight="40.0" prefWidth="140.0" text="Редагувати">
-                <HBox.margin>
-                    <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-                </HBox.margin>
-            </Button>
-            <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#openWindow" prefHeight="40.0" prefWidth="140.0" text="Видалити">
-                <HBox.margin>
-                    <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-                </HBox.margin>
-            </Button>
-        </children>
+    <HBox spacing="15.0" alignment="CENTER" prefWidth="560.0">
+        <Button fx:id="addButton" mnemonicParsing="false" onAction="#openWindow" prefHeight="45.0" prefWidth="160.0" text="Додати" />
+        <Button fx:id="editButton" mnemonicParsing="false" onAction="#openWindow" prefHeight="45.0" prefWidth="160.0" text="Редагувати" />
+        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#openWindow" prefHeight="45.0" prefWidth="160.0" text="Видалити" />
     </HBox>
-
-    <Label fx:id="welcomeText" />
-   <AnchorPane prefHeight="98.0" prefWidth="560.0">
-      <VBox.margin>
-         <Insets />
-      </VBox.margin>
-      <children>
-         <TextField fx:id="txtSearch" layoutY="9.0" prefHeight="40.0" prefWidth="310.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="230.39999999999998" />
-         <Button fx:id="btnSearch" layoutX="420.0" layoutY="9.0" mnemonicParsing="false" onAction="#searchPerson" prefHeight="40.0" prefWidth="140.0" text="Пошук" AnchorPane.rightAnchor="0.0" />
-      </children>
-   </AnchorPane>
+   <HBox spacing="10.0" alignment="CENTER_LEFT" prefWidth="560.0">
+      <TextField fx:id="txtSearch" prefHeight="40.0" HBox.hgrow="ALWAYS" style="-fx-font-size: 14px; -fx-background-radius: 8; -fx-border-radius: 8;" promptText="Пошук за ПІП або телефоном..." />
+      <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#searchPerson" prefHeight="40.0" prefWidth="120.0" text="Пошук" />
+   </HBox>
    <AnchorPane prefHeight="300.0" prefWidth="600.0">
       <children>
          <TableView fx:id="tableAddressBook" layoutX="14.0" layoutY="8.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -57,15 +37,9 @@
          </TableView>
       </children>
    </AnchorPane>
-   <AnchorPane prefHeight="100.0" prefWidth="600.0">
-      <children>
-         <Label fx:id="labelCount" layoutX="40.0" layoutY="21.0" text="Кількість записів:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
-         <Button fx:id="btnOther" layoutX="217.0" layoutY="1.0" mnemonicParsing="false" onAction="#openOtherLabs" prefHeight="26.0" prefWidth="126.0" text="Other lab" AnchorPane.leftAnchor="217.0">
-            <padding>
-               <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-            </padding>
-         </Button>
-         <Button layoutX="514.0" layoutY="29.0" mnemonicParsing="false" text="Вихід" />
-      </children>
-   </AnchorPane>
+   <HBox spacing="15.0" alignment="CENTER_LEFT" prefWidth="600.0">
+      <Label fx:id="labelCount" text="Кількість записів:" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2d4059;" />
+      <Region HBox.hgrow="ALWAYS" />
+      <Button fx:id="btnOther" mnemonicParsing="false" onAction="#openOtherLabs" prefHeight="50.0" prefWidth="200.0" text="Інші лабораторні" styleClass="other-labs-button" />
+   </HBox>
 </VBox>

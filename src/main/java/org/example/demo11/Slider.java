@@ -1,14 +1,11 @@
 package org.example.demo11;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-
-import java.awt.*;
+import javafx.scene.control.Label;
 
 public class Slider {
     @FXML
-    private Slider mySlider;
+    private javafx.scene.control.Slider mySlider;
 
     @FXML
     private Label sliderLabel;
@@ -16,15 +13,11 @@ public class Slider {
     private int score;
 
     public void initialize() {
-        mySlider.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observable,
-                                Number oldValue, Number newValue) {
-
-                score = (int) mySlider.getValue();
-                sliderLabel.setText(score + " балів");
-            }
+        sliderLabel.setText((int) mySlider.getValue() + " балів");
+        mySlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            score = newValue.intValue();
+            sliderLabel.setText(score + " балів");
         });
     }
-
 }
+

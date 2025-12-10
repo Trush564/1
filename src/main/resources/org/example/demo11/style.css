@@ -1,26 +1,295 @@
-
+/* Основні стилі */
 .root {
     -fx-background-color: linear-gradient(to bottom right, #84e6e1, #efc7d2);
 }
+
+/* Стилі для кнопок */
 .button {
     -fx-background-color: #7abaff;
     -fx-text-fill: white;
     -fx-font-size: 14px;
+    -fx-font-weight: 600;
     -fx-background-radius: 10;
+    -fx-padding: 10 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
 }
 
 .button:hover {
     -fx-background-color: #5588dd;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 8, 0, 0, 3);
 }
 
+.button:pressed {
+    -fx-background-color: #4a77cc;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 3, 0, 0, 1);
+}
 
+/* Стилі для лейблів */
 .label {
-    -fx-font-size: 18px;
-    -fx-font-weight: bold;
+    -fx-font-size: 16px;
     -fx-text-fill: #444;
+}
+
+.title-label {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2d4059;
+}
+
+.lab-card {
+    -fx-background-color: rgba(255,255,255,0.92);
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: rgba(0,0,0,0.1);
+    -fx-padding: 10 10 15 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 12, 0, 0, 6);
+}
+
+.titled-pane.lab-card > .title {
+    -fx-background-color: transparent;
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2d4059;
+    -fx-padding: 8 12;
+}
+
+.titled-pane.lab-card > .content {
+    -fx-background-color: transparent;
+    -fx-padding: 15;
+}
+
+/* Лабораторна 7 */
+.lab7-root {
+    -fx-background-color: linear-gradient(to bottom right, #84e6e1, #efc7d2);
+}
+
+.lab7-root .viewport {
+    -fx-background-color: linear-gradient(to bottom right, #84e6e1, #efc7d2);
+}
+
+.lab7-content {
+    -fx-background-color: transparent;
+}
+
+.media-view {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0, 0, 8);
+    -fx-background-color: rgba(0,0,0,0.1);
+    -fx-background-radius: 8;
 }
 
 .image-view {
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 5);
     -fx-padding: 10;
+}
+
+/* Стилі для текстового поля */
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 8 12;
+}
+
+.text-field:focused {
+    -fx-border-color: #7abaff;
+    -fx-border-width: 2;
+}
+
+/* Стилі для таблиці */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.table-view .column-header {
+    -fx-background-color: #f0f0f0;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2d4059;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #7abaff;
+    -fx-text-background-color: white;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #e3f2fd;
+}
+
+/* Діалог додавання/редагування */
+.dialog-root {
+    -fx-background-color: linear-gradient(to bottom right, #84e6e1, #efc7d2);
+}
+
+.dialog-text-field {
+    -fx-background-color: white;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 10 15;
+    -fx-font-size: 14px;
+}
+
+.dialog-text-field:focused {
+    -fx-border-color: #7abaff;
+    -fx-border-width: 2;
+}
+
+.save-button {
+    -fx-background-color: linear-gradient(to bottom, #4CAF50, #45a049);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(76,175,80,0.4), 8, 0, 0, 3);
+}
+
+.save-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #45a049, #3d8b40);
+    -fx-effect: dropshadow(three-pass-box, rgba(76,175,80,0.6), 12, 0, 0, 4);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.save-button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #3d8b40, #357a38);
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+}
+
+.cancel-button {
+    -fx-background-color: #f44336;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(244,67,54,0.4), 8, 0, 0, 3);
+}
+
+.cancel-button:hover {
+    -fx-background-color: #da190b;
+    -fx-effect: dropshadow(three-pass-box, rgba(244,67,54,0.6), 12, 0, 0, 4);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.cancel-button:pressed {
+    -fx-background-color: #c62828;
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+}
+
+/* Стилі для Alert діалогів */
+.alert {
+    -fx-background-color: linear-gradient(to bottom right, #84e6e1, #efc7d2);
+}
+
+.dialog-pane {
+    -fx-background-color: linear-gradient(to bottom right, #84e6e1, #efc7d2);
+    -fx-border-color: rgba(255,255,255,0.5);
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.dialog-pane > .content.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #2d4059;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: rgba(255,255,255,0.3);
+}
+
+.dialog-pane .header-panel .label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2d4059;
+}
+
+.dialog-pane .button-bar .button {
+    -fx-background-color: #7abaff;
+    -fx-text-fill: white;
+    -fx-font-weight: 600;
+    -fx-background-radius: 8;
+    -fx-padding: 8 20;
+}
+
+.dialog-pane .button-bar .button:hover {
+    -fx-background-color: #5588dd;
+}
+
+/* Стилі для WARNING Alert */
+.alert.dialog-pane.warning {
+    -fx-background-color: linear-gradient(to bottom right, #fff3cd, #ffe69c);
+}
+
+.alert.dialog-pane.warning .header-panel {
+    -fx-background-color: rgba(255,193,7,0.3);
+}
+
+.alert.dialog-pane.warning .content.label {
+    -fx-text-fill: #856404;
+}
+
+.alert.dialog-pane.warning .header-panel .label {
+    -fx-text-fill: #856404;
+}
+
+/* Стилі для CONFIRMATION Alert */
+.alert.dialog-pane.confirmation {
+    -fx-background-color: linear-gradient(to bottom right, #d1ecf1, #bee5eb);
+}
+
+.alert.dialog-pane.confirmation .header-panel {
+    -fx-background-color: rgba(23,162,184,0.3);
+}
+
+.alert.dialog-pane.confirmation .content.label {
+    -fx-text-fill: #0c5460;
+}
+
+.alert.dialog-pane.confirmation .header-panel .label {
+    -fx-text-fill: #0c5460;
+}
+
+/* Загальні стилі для всіх Alert */
+.alert .button-bar {
+    -fx-padding: 15;
+}
+
+.alert .content {
+    -fx-padding: 20;
+}
+
+/* Спеціальна кнопка "Інші лабораторні" */
+.other-labs-button {
+    -fx-background-color: linear-gradient(to bottom, #ff9a9e, #fecfef);
+    -fx-text-fill: #2d4059;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-padding: 12 24;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(255,154,158,0.4), 10, 0, 0, 4);
+}
+
+.other-labs-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #ff8a8e, #febfdf);
+    -fx-effect: dropshadow(three-pass-box, rgba(255,154,158,0.6), 15, 0, 0, 6);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.other-labs-button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #ff7a7e, #feafcf);
+    -fx-effect: dropshadow(three-pass-box, rgba(255,154,158,0.3), 5, 0, 0, 2);
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
 }

@@ -62,12 +62,46 @@ public class OtherLabs {
 
     @FXML
     private void openLab7(ActionEvent event) {
-        showLabInfo("Лабораторна робота 7", "Тут буде реалізація лабораторної роботи 7");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("lab7.fxml"));
+            Scene scene = new Scene(loader.load(), 1200, 800);
+            scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+
+            Stage stage = new Stage();
+            stage.setTitle("Лабораторна робота 7");
+            stage.setResizable(true);
+            stage.setMinWidth(1200);
+            stage.setMinHeight(700);
+            stage.setWidth(1200);
+            stage.setHeight(800);
+            stage.setScene(scene);
+            stage.centerOnScreen();
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void openLab8(ActionEvent event) {
-        showLabInfo("Лабораторна робота 8", "Тут буде реалізація лабораторної роботи 8");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("lab8.fxml"));
+            Scene scene = new Scene(loader.load(), 1000, 800);
+            scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+
+            Stage stage = new Stage();
+            stage.setTitle("Лабораторна робота 8");
+            stage.setResizable(true);
+            stage.setMinWidth(900);
+            stage.setMinHeight(700);
+            stage.setWidth(1000);
+            stage.setHeight(800);
+            stage.setScene(scene);
+            stage.centerOnScreen();
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void showLabInfo(String title, String message) {

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.fxml.FXML?>
+
+<ScrollPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" styleClass="lab7-root">
+    <content>
+        <VBox spacing="20.0" styleClass="lab7-content">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <TitledPane text="DatePicker" styleClass="lab-card" expanded="true">
+                <content>
+                    <fx:include source="lab7_date.fxml"/>
+                </content>
+            </TitledPane>
+
+            <TitledPane text="ColorPicker" styleClass="lab-card" expanded="true">
+                <content>
+                    <fx:include source="lab7_color.fxml"/>
+                </content>
+            </TitledPane>
+
+            <TitledPane text="Slider" styleClass="lab-card" expanded="true">
+                <content>
+                    <fx:include source="lab7_slider.fxml"/>
+                </content>
+            </TitledPane>
+
+            <TitledPane text="FileChooser (зображення)" styleClass="lab-card" expanded="true">
+                <content>
+                    <fx:include source="lab7_file.fxml"/>
+                </content>
+            </TitledPane>
+
+            <TitledPane text="Відеоплеєр" styleClass="lab-card" expanded="true">
+                <content>
+                    <fx:include source="lab7_video.fxml"/>
+                </content>
+            </TitledPane>
+
+            <TitledPane text="Аудіоплеєр" styleClass="lab-card" expanded="true">
+                <content>
+                    <fx:include source="lab7_audio.fxml"/>
+                </content>
+            </TitledPane>
+        </VBox>
+    </content>
+</ScrollPane>
+

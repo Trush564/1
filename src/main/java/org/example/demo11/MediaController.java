@@ -1,22 +1,24 @@
 package org.example.demo11;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 
-import javax.print.attribute.standard.Media;
-import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.io.File;
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-public class MediaController implements Initializable {
+public class MediaController {
+
+    @FXML
+    private MediaView mediaView;
+
     @FXML
     private Button pauseButton;
-
-    @FXML
-    private MediaController mediaView;
 
     @FXML
     private Button playButton;
@@ -24,35 +26,59 @@ public class MediaController implements Initializable {
     @FXML
     private Button resetButton;
 
-    private File file;
-    private Media media;
-    private MediaPlayer mediaPlayer;
+    private javafx.scene.media.MediaPlayer mediaPlayer;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize() {
+        setupVideo();
+    }
 
-        file = new File("video.mp4");
-        media = new Media(file.toURI().toString());
-        mediaPlayer = new MediaPlayer(media);
-
-        mediaView.setMediaPlayer(mediaPlayer);
+    private void setupVideo() {
+        File file = findFileNearProjectRoot("video.mp4");
+        if (file != null) {
+            Media media = new Media(file.toURI().toString());
+            mediaPlayer = new javafx.scene.media.MediaPlayer(media);
+            mediaView.setMediaPlayer(mediaPlayer);
+        } else {
+            disableVideoControls();
+        }
     }
 
     @FXML
     void playButton_method(ActionEvent event) {
-        mediaPlayer.play();
+        if (mediaPlayer != null) {
+            mediaPlayer.play();
+        }
     }
 
     @FXML
     void pauseButton_method(ActionEvent event) {
-        mediaPlayer.pause();
+        if (mediaPlayer != null) {
+            mediaPlayer.pause();
+        }
     }
 
     @FXML
     void resetButton_method(ActionEvent event) {
-        if (mediaPlayer.getStatus() != MediaPlayer.Status.READY) {
-            mediaPlayer.seek(Duration.seconds(0.0));
+        if (mediaPlayer != null && mediaPlayer.getStatus() != javafx.scene.media.MediaPlayer.Status.READY) {
+            mediaPlayer.seek(Duration.ZERO);
             mediaPlayer.play();
         }
     }
+
+    private File findFileNearProjectRoot(String fileName) {
+        Path projectRoot = Paths.get("").toAbsolutePath();
+        Path candidate = projectRoot.resolve(fileName);
+        if (Files.exists(candidate)) {
+            return candidate.toFile();
+        }
+        return null;
+    }
+
+    private void disableVideoControls() {
+        playButton.setDisable(true);
+        pauseButton.setDisable(true);
+        resetButton.setDisable(true);
+        mediaView.setDisable(true);
+    }
 }
+
