@@ -1,0 +1,26 @@
+
+.root {
+    -fx-background-color: linear-gradient(to bottom right, #84e6e1, #efc7d2);
+}
+.button {
+    -fx-background-color: #7abaff;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-background-radius: 10;
+}
+
+.button:hover {
+    -fx-background-color: #5588dd;
+}
+
+
+.label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #444;
+}
+
+.image-view {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 5);
+    -fx-padding: 10;
+}
